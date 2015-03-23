@@ -1,6 +1,6 @@
 #! /usr/bin/env gforth
 
-\ defb2forth.fs
+\ udgdefb2forth.fs
 
 \ By Marcos Cruz (programandala.net)
 
@@ -14,12 +14,15 @@
 \ **************************************************************
 \ Usage
 
-\ ./defb2forth.fs > output_file.fs
+\ ./udgdefb2forth.fs > output_file.fs
 
 \ **************************************************************
 \ History
 
-\ 2015-03-20: Start
+\ 2015-03-20: First version.
+\
+\ 2015-03-23: Added '90 UDG!' as default (graphic char and defininig
+\ word).
 
 \ **************************************************************
 \ Main
@@ -29,7 +32,7 @@ variable scans  scans off
 : ;;  ( "char" -- )  parse-name save-mem udg 2!  ;
 : defb  ( "number" -- )
   parse-name evaluate s>d hex <# 32 hold # # #> type decimal
-  1 scans +!  scans @ 8 = if  ." \ " udg 2@ type scans off cr  then
+  1 scans +!  scans @ 8 = if  ."  90 UDG! \ " udg 2@ type scans off cr  then
   ;
 
 \ **************************************************************
