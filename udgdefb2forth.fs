@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211644
+\ Last modified 201612211654
 
 \ ==============================================================
 \ Description
@@ -29,7 +29,7 @@
   \ defb %00111100
   \ defb %00000000
 
-\ Result:
+\ Output:
 
   \ $08 $10 $38 $04 $3C $44 $3C $00  #128 udg!  \ á
 
