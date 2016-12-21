@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211827
+\ Last modified 201612211833
 
 \ ==============================================================
 \ Description
@@ -40,19 +40,6 @@
 \
 \ 2016-12-21: Update file header and source layout. Fix `hex8.`,
 \ `next-udg`, `behead`. Factor.
-
-\ ==============================================================
-\ Requirements
-
-\ From Galope
-\ (http://programandala.net/en.program.galope.html)
-
-: unslurp-file  ( ca1 len1 ca2 len2 -- )
-  w/o create-file throw >r
-  r@ write-file throw
-  r> close-file throw  ;
-  \ ca1 len1 = content to write to the file
-  \ ca2 len2 = filename
 
 \ ==============================================================
 \ Main
