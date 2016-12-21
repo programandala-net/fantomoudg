@@ -1,17 +1,32 @@
 #! /usr/bin/env gforth
 
-\ tichar2udg.fs
+\ udgti2bin.fs
 
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211554
+\ Last modified 201612211651
 
 \ ==============================================================
 \ Description
 
 \ This program converts TI BASIC character definitions (for
 \ TI-99 computers) to UDG binary patterns.
+
+\ Input format example:
+
+  \ s" 183C3CFF3C3C3C3C" chardef
+
+\ Output:
+
+  \ 00011000
+  \ 00111100
+  \ 00111100
+  \ 11111111
+  \ 00111100
+  \ 00111100
+  \ 00111100
+  \ 00111100
 
 \ ==============================================================
 \ Author
@@ -40,7 +55,7 @@
   \ Print a whole 8-bit number.
 
 : chardef  ( ca len -- )
-  base @ >r  hex
+  base @ >r
   bounds do
     0. i 2  hex >number 2drop  binary row
   2 +loop cr
