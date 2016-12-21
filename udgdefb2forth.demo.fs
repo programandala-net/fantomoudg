@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211632
+\ Last modified 201612211715
 
 \ ==============================================================
 \ Description
@@ -38,13 +38,13 @@
 \ ==============================================================
 \ History
 
-\ 2016-12-21: Extracted from <udgdef2forth.fs>.
+\ 2016-12-21: Extract from <udgdef2forth.fs>.
 
 \ ==============================================================
 
 include udgdefb2forth.fs
 
-160 first-udg !
+160 udg !
 
 ;; á
 defb %00001000

@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211706
+\ Last modified 201612211715
 
 \ ==============================================================
 \ Description
@@ -35,7 +35,7 @@
 \ ==============================================================
 \ History
 
-\ 2016-12-21: Extracted from <udgti2bin.fs>.
+\ 2016-12-21: Extract from <udgti2bin.fs>.
 
 \ ==============================================================
 
