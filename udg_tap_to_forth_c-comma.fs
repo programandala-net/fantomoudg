@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211841
+\ Last modified 201612212324
 
 \ ==============================================================
 \ Description
@@ -61,10 +61,10 @@ variable scans  \ counter
   \ _ca len_ (8 bytes per UDG) to Forth source printed to
   \ standard output.
 
-: behead  ( ca1 len1 -- ca2 len2 )  25 /string  ;
+: behead  ( ca1 len1 -- ca2 len2 )  24 /string 1-  ;
   \ Remove the TAP file header from the TAP file contents _ca1
-  \ len1_, resulting a string _ca2 len2_ that contains only the
-  \ actual data of the file.
+  \ len1_, and the checksum byte of the data block, resulting a string
+  \ _ca2 len2_ that contains only the actual data of the file.
 
 : udgtap>forth ( ca len -- )  slurp-file behead udgs>forth  ;
   \ Convert the UDGs contained in TAP file _ca len_ to Forth
