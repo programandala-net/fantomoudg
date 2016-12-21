@@ -2,40 +2,60 @@
 
 \ udgdefb2forth.fs
 
-\ By Marcos Cruz (programandala.net)
+\ This file is part of FantomoUDG
+\ http://programandala.net
 
-\ **************************************************************
+\ Last modified 201612211554
+
+\ ==============================================================
 \ Description
 
-\ This Forth program converts Z80 assembler 'defb' directives, with
-\ binary numbers representing a 8x8 User Defined Graphic, to hex
+\ This Forth program converts Z80 assembler 'defb' directives,
+\ with binary numbers representing User Defined Graphics, to hex
 \ data ready to be used in a Forth program.
 
-\ **************************************************************
+\ ==============================================================
 \ Usage
 
 \ ./udgdefb2forth.fs > output_file.fs
 
-\ **************************************************************
+\ ==============================================================
+\ Author
+
+\ Marcos Cruz (programandala.net), 2015, 2016.
+
+\ ==============================================================
+\ License
+
+\ You may do whatever you want with this work, so long as you
+\ retain every copyright, credit and authorship notice, and this
+\ license.  There is no warranty.
+
+\ ==============================================================
 \ History
 
 \ 2015-03-20: First version.
 \
-\ 2015-03-23: Added '90 UDG!' as default (graphic char and defininig
-\ word).
+\ 2015-03-23: Added '90 UDG!' as default (graphic char and
+\ defininig word).
+\
+\ 2016-12-21: Update file header and source layout.
 
-\ **************************************************************
+\ ==============================================================
 \ Main
 
 2variable udg
+
 variable scans  scans off
+
 : ;;  ( "char" -- )  parse-name save-mem udg 2!  ;
+
 : defb  ( "number" -- )
   parse-name evaluate s>d hex <# 32 hold # # #> type decimal
-  1 scans +!  scans @ 8 = if  ."  90 UDG! \ " udg 2@ type scans off cr  then
-  ;
+  1 scans +!  scans @ 8 =
+  if  ."  90 UDG! \ " udg 2@ type scans off cr  then  ;
 
-\ **************************************************************
+\ ==============================================================
 \ Example data
 
   ;; á

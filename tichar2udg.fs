@@ -1,31 +1,52 @@
 #! /usr/bin/env gforth
 
 \ tichar2udg.fs
-\
-\ Convert TI BASIC character definitions
-\ (for TI-99 computers) to 8x8 binary patterns
-\ (for Sinclair ZX Spectrum and SAM Coupé computers).
-\
-\ Por/Far/By: Marcos Cruz (programandala.net)
-\ 2013-01-17
-\
 
-: binary  ( -- )
-  2 base !
-  ;
-: row  ( ud -- )
+\ This file is part of FantomoUDG
+\ http://programandala.net
+
+\ Last modified 201612211554
+
+\ ==============================================================
+\ Description
+
+\ This program converts TI BASIC character definitions (for
+\ TI-99 computers) to UDG binary patterns.
+
+\ ==============================================================
+\ Author
+
+\ Marcos Cruz (programandala.net), 2013, 2016.
+
+\ ==============================================================
+\ License
+
+\ You may do whatever you want with this work, so long as you
+\ retain every copyright, credit and authorship notice, and this
+\ license.  There is no warranty.
+
+\ ==============================================================
+\ History
+
+\ 2013-01-17: First version.
+\
+\ 2016-12-21: Update file header and source layout.
+
+\ ==============================================================
+
+: binary  ( -- )  2 base !  ;
+
+: row  ( ud -- )  <# # # # # # # # # #> type cr  ;
   \ Print a whole 8-bit number.
-  <# # # # # # # # # #> type cr
-  ;
-: chardef  ( ca u -- )
-  \ Print the binary pattern of a TI-99 character definition.
-  \ ca u = string with 16 hex digits.
+
+: chardef  ( ca len -- )
   base @ >r  hex
   bounds do
     0. i 2  hex >number 2drop  binary row
   2 +loop cr
-  r> base !
-  ;
+  r> base !  ;
+  \ Print the binary pattern of a TI-99 character definition,
+  \ defined as 16 hex digits in the string _ca len_.
 
 s" 183C3CFF3C3C3C3C" chardef
 s" 472F1F3E7CFA7120" chardef

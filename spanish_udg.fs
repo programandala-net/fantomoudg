@@ -2,37 +2,61 @@
 
 \ spanish_udg.fs
 
-\ A tool for creating some ZX Spectrum UDG
-\ (User Defined Graphics), used for the Spanish characters,
-\ in BASIC DATA format.
+\ This file is part of FantomoUDG
+\ http://programandala.net
 
-\ By Marcos Cruz (programandala.net)
+\ Last modified 201612211554
+
+\ ==============================================================
+\ Description
+
+\ A tool to create some ZX Spectrum UDG (User Defined Graphics),
+\ used for the Spanish characters, in BASIC DATA format.
+
+\ ==============================================================
+\ Author
+
+\ Marcos Cruz (programandala.net), 2010, 2011, 2016
+
+\ ==============================================================
+\ License
+
+\ You may do whatever you want with this work, so long as you
+\ retain every copyright, credit and authorship notice, and this
+\ license.  There is no warranty.
+
+\ ==============================================================
+\ History
 
 \ 2010-05-24: First version.
 
-\ 2011-12-24: Typo fixed: a string final quote was missing at the end
-\ of the line; Gforth and bigFORTH supposed the string ends at the end
-\ of line, but lina (logically) stored the rest of the file as the
-\ string.
+\ 2011-12-24: Typo fixed: a string final quote was missing at
+\ the end of the line; Gforth and bigFORTH supposed the string
+\ ends at the end of line, but lina (logically) stored the rest
+\ of the file as the string.
+\
+\ 2016-12-21: Update file header and source layout.
+
+\ ==============================================================
 
 decimal
+
 : binary  ( -- ) 2 base ! ;
 
 variable udg#  char A udg# !
 
-: quote  ( -- ) 34 ( quote ) emit ;
-: comma  ( -- ) [char] , emit ;
+: quote  ( -- ) 34 ( quote ) emit  ;
+
+: comma  ( -- ) [char] , emit  ;
 
 : :udg  ( a u -- )
-  binary cr ." DATA " quote udg# @ emit quote
-  ;
+  binary cr ." DATA " quote udg# @ emit quote  ;
+
 : scan  ( b -- )
-  comma decimal . binary 
-  ;
+  comma decimal . binary  ;
+
 : ;udg  ( a u -- )
-  ."  : REM " type
-  decimal 1 udg# +!
-  ;
+  ."  : REM " type decimal 1 udg# +!  ;
 
 
 s" inverse exclamation mark"

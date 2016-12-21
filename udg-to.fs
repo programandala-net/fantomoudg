@@ -2,19 +2,44 @@
 
 \ udg-to.fs
 
-\ Converters from ZX Spectrum UDG data to
-\ BASIC and Forth source formats.
+\ This file is part of FantomoUDG
+\ http://programandala.net
 
-\ By Marcos Cruz (programandala.net)
+\ Last modified 201612211554
+
+\ ==============================================================
+\ Description
+
+\ Converters from ZX Spectrum UDG data to BASIC and Forth source
+\ formats.
+
+\ ==============================================================
+\ Author
+
+\ Marcos Cruz (programandala.net), 2015, 2016.
+
+\ ==============================================================
+\ License
+
+\ You may do whatever you want with this work, so long as you
+\ retain every copyright, credit and authorship notice, and this
+\ license.  There is no warranty.
+
+\ ==============================================================
+\ History
 
 \ 2015-01-07: Original version for BASIC data, called "show_udg.fs".
+\
 \ 2016-02-15: New version, improved and renamed.
+\
+\ 2016-12-21: Update file header and source layout.
+
+\ ==============================================================
 
 : udg>data  ( n0..n7 -- )
   ." data "
   -1 7 -do
-    i pick .
-    i if  [char] , emit  then
+    i pick .  i if  [char] , emit  then
   1 -loop  cr  ;
 
 [undefined] binary [if]
@@ -40,5 +65,5 @@ binary-prefix? off
 : 2x1udg>bin  ( n0..n7 n8..n15 -- )
   -1 7 -do
     i 8 + pick binary-scan
-    i pick binary-scan cr
+    i     pick binary-scan cr
   1 -loop  cr  ;
