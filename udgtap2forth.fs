@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211554
+\ Last modified 201612211757
 
 \ ==============================================================
 \ Description
@@ -17,7 +17,7 @@
 \ ==============================================================
 \ Usage
 
-\ s" filename.tap" udgtap2forth.fs > filename.fs
+\ ./udgtap2forth.fs input_file.tap > output_file.fs
 
 \ ==============================================================
 \ Author
@@ -36,14 +36,23 @@
 
 \ 2015-03-23: Start.
 \
-\ 2016-03-01: Fixed, improved.
+\ 2016-03-01: Fix, improve.
 \
-\ 2016-12-21: Update file header and source layout.
+\ 2016-12-21: Update file header and source layout. Fix `hex8.`,
+\ `next-udg`, `behead`. Factor.
 
 \ ==============================================================
 \ Requirements
 
-require galope/unslurp.fs
+\ From Galope
+\ (http://programandala.net/en.program.galope.html)
+
+: unslurp-file  ( ca1 len1 ca2 len2 -- )
+  w/o create-file throw >r
+  r@ write-file throw
+  r> close-file throw  ;
+  \ ca1 len1 = content to write to the file
+  \ ca2 len2 = filename
 
 \ ==============================================================
 \ Main
@@ -51,21 +60,41 @@ require galope/unslurp.fs
 variable scans  \ counter
 variable udg    \ counter
 
-: hex8.  ( b -- )  i c@ <# # # #> type space  ;
-: last-scan?  ( -- f )  scans @ 8 =  ;
+144 constant first-udg
+8 constant scans/udg
+
+: .scan  ( n -- )
+  base @ >r s>d hex <# # # '$' hold #> type space r> base !  ;
+
+: last-scan?  ( -- f )  scans @ scans/udg =  ;
+
 : next-scan  ( -- )  1 scans +!  ;
-: next-udg  ( -- )  udg @ hex8. ." udg!" cr  1 udg +!  ;
+
+: next-udg  ( -- )  1 udg +!  scans off  ;
+
+: .udg  ( n -- )  s>d space <# # # # '#' hold #> type space  ;
+
+: .store-udg  ( -- )  udg @ .udg ." udg!" cr  ;
+
+: finish-udg  ( -- )  .store-udg next-udg  ;
+
+: init  ( -- )  scans off  first-udg udg !  ;
 
 : udgs>forth  ( ca len -- )
-  \ ca len = UDG definitions (8 bytes per graphic)
-  scans off  144 udg !  hex
-  bounds ?do
-    i c@ hex8.  next-scan  last-scan? if  next-udg  then
-  loop  decimal  ;
+  init  bounds ?do
+    i c@ .scan next-scan last-scan? if  finish-udg  then
+  loop  ;
+  \ Convert the UDG definitions contained in the memory zone
+  \ _ca len_ (8 bytes per UDG) to Forth source printed to
+  \ standard output.
 
-: behead  ( ca1 len1 -- ca2 len2 )  24 /string  ;
-  \ Remove the TAP file header from the TAP file image _ca1
-  \ len1_.
+: behead  ( ca1 len1 -- ca2 len2 )  25 /string  ;
+  \ Remove the TAP file header from the TAP file contents _ca1
+  \ len1_, resulting a string _ca2 len2_ that contains only the
+  \ actual data of the file.
 
 : udgtap>forth ( ca len -- )  slurp-file behead udgs>forth  ;
-  \ ca len = TAP file name
+  \ Convert the UDGs contained in TAP file _ca len_ to Forth
+  \ source printed to standard output.
+
+1 arg udgtap>forth bye
