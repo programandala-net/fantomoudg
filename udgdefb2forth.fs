@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211654
+\ Last modified 201612211800
 
 \ ==============================================================
 \ Description
@@ -60,7 +60,8 @@
 \
 \ 2016-12-21: Update file header and source layout. Factor,
 \ improve and comment the code. Add an increasing UDG code and
-\ make the first one configurable.
+\ make the first one configurable.  Extract the data to their
+\ own file, as a demo.
 
 \ ==============================================================
 \ Main
@@ -88,8 +89,11 @@ variable scans  scans off  \ counter
 
 : .udg  ( n -- )  s>d space <# # # # '#' hold #> type space  ;
 
-: finish-udg  ( -- )
-  udg @ .udg ." udg!  \ " udg-name 2@ type cr  next-udg  ;
+: .udg-name  ( -- )  ."   \ " udg-name 2@ type cr  ;
+
+: .store-udg  ( -- )  udg @ .udg ." udg!"  ;
+
+: finish-udg  ( -- )  .store-udg .udg-name next-udg  ;
 
 : defb  ( "number" -- )
   get-scan .scan next-scan last-scan? if  finish-udg  then  ;

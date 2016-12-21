@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211651
+\ Last modified 201612211801
 
 \ ==============================================================
 \ Description
@@ -51,8 +51,8 @@
 \ 2013-01-17: First version.
 \
 \ 2016-12-21: Update file header and source layout. Improve
-\ documentation and code. Extract the data to its own file, as a
-\ demo.
+\ documentation and code. Extract the data to their own file, as
+\ a demo.
 
 \ ==============================================================
 
