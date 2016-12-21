@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211554
+\ Last modified 201612211618
 
 \ ==============================================================
 \ Description
@@ -36,27 +36,51 @@
 
 \ 2015-03-20: First version.
 \
-\ 2015-03-23: Added '90 UDG!' as default (graphic char and
+\ 2015-03-23: Add '90 UDG!' as default (graphic char and
 \ defininig word).
 \
-\ 2016-12-21: Update file header and source layout.
+\ 2016-12-21: Update file header and source layout. Factor,
+\ improve and comment the code. Add an increasing UDG code and
+\ make the first one configurable.
 
 \ ==============================================================
 \ Main
 
-2variable udg
+variable udg  128 udg !  \ char code of the first UDG
 
-variable scans  scans off
+8 constant scans/udg
 
-: ;;  ( "char" -- )  parse-name save-mem udg 2!  ;
+variable scans  scans off  \ counter
+
+2variable udg-name
+
+: ;;  ( "name" -- )  parse-name save-mem udg-name 2!  ;
+
+: .scan  ( n -- )
+  s>d hex <# # # '$' hold #> type space decimal  ;
+
+: get-scan  ( "name" -- n )  parse-name evaluate  ;
+
+: last-scan?  ( -- f )  scans @ scans/udg =  ;
+
+: next-scan  ( -- )  1 scans +!  ;
+
+: next-udg  ( -- )  1 udg +!  scans off  ;
+
+: .udg  ( n -- )  s>d space <# # # # '#' hold #> type space  ;
+
+: finish-udg  ( -- )
+  udg @ .udg ." udg!  \ " udg-name 2@ type cr  next-udg  ;
 
 : defb  ( "number" -- )
-  parse-name evaluate s>d hex <# 32 hold # # #> type decimal
-  1 scans +!  scans @ 8 =
-  if  ."  90 UDG! \ " udg 2@ type scans off cr  then  ;
+  get-scan .scan next-scan last-scan? if  finish-udg  then  ;
 
 \ ==============================================================
-\ Example data
+\ Usage example
+
+1 [if]
+
+  \ include udgdefb2forth.fs
 
   ;; á
   defb %00001000
@@ -230,4 +254,6 @@ variable scans  scans off
   defb %01001000
   defb %00000000
 
-bye
+  bye
+
+[then]
