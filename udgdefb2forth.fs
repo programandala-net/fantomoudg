@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211632
+\ Last modified 201612211644
 
 \ ==============================================================
 \ Description
@@ -13,11 +13,30 @@
 \ This Forth program converts Z80 assembler 'defb' directives,
 \ with binary numbers representing User Defined Graphics, to hex
 \ data ready to be used in a Forth program.
+\
+\ The `udg!` word is used in the output code, which is suitable
+\ for Solo Forth.
+
+\ Input format example:
+
+  \ ;; á
+  \ defb %00001000
+  \ defb %00010000
+  \ defb %00111000
+  \ defb %00000100
+  \ defb %00111100
+  \ defb %01000100
+  \ defb %00111100
+  \ defb %00000000
+
+\ Result:
+
+  \ $08 $10 $38 $04 $3C $44 $3C $00  #128 udg!  \ á
 
 \ ==============================================================
 \ Usage
 
-\ See <udgdefb2forth.demo.fs>.
+\ See <udgdefb2forth.demo.fs> for a usage example.
 
 \ ==============================================================
 \ Author

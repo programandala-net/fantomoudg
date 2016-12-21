@@ -44,6 +44,8 @@
 
 include udgdefb2forth.fs
 
+160 first-udg !
+
 ;; á
 defb %00001000
 defb %00010000
