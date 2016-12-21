@@ -1,11 +1,11 @@
 #! /usr/bin/env gforth
 
-\ udgtap2forth.fs
+\ udg_tap_to_forth.fs
 
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211757
+\ Last modified 201612211827
 
 \ ==============================================================
 \ Description
@@ -17,7 +17,7 @@
 \ ==============================================================
 \ Usage
 
-\ ./udgtap2forth.fs input_file.tap > output_file.fs
+\ ./udg_tap_to_forth.fs input_file.tap > output_file.fs
 
 \ ==============================================================
 \ Author

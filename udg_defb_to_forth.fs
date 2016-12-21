@@ -1,11 +1,11 @@
 #! /usr/bin/env gforth
 
-\ udgdefb2forth.fs
+\ udg_defb_to_forth.fs
 
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211800
+\ Last modified 201612211827
 
 \ ==============================================================
 \ Description
@@ -36,7 +36,7 @@
 \ ==============================================================
 \ Usage
 
-\ See <udgdefb2forth.demo.fs> for a usage example.
+\ See <udg_defb_to_forth.demo.fs> for a usage example.
 
 \ ==============================================================
 \ Author

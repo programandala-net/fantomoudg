@@ -1,16 +1,16 @@
 #! /usr/bin/env gforth
 
-\ udgdefb2forth.demo.fs
+\ udg_defb_to_forth.demo.fs
 
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211715
+\ Last modified 201612211827
 
 \ ==============================================================
 \ Description
 
-\ Demo of the <udgdefb2forth.fs> converter.
+\ Demo of the <udg_defb_to_forth.fs> converter.
 
 \ This source converts UDG defined in Z80 assembly `defb`
 \ directives to to Forth notation, suitable for Solo Forth.
@@ -21,7 +21,7 @@
 \ ==============================================================
 \ Usage
 
-\ ./udgdefb2forth.demo.fs > output_file.fs
+\ ./udg_defb_to_forth.demo.fs > output_file.fs
 
 \ ==============================================================
 \ Author
@@ -38,11 +38,11 @@
 \ ==============================================================
 \ History
 
-\ 2016-12-21: Extract from <udgdef2forth.fs>.
+\ 2016-12-21: Extract from <udg_defb_to_forth.fs>.
 
 \ ==============================================================
 
-include udgdefb2forth.fs
+include udg_defb_to_forth.fs
 
 160 udg !
 

@@ -1,11 +1,11 @@
 #! /usr/bin/env gforth
 
-\ udgti2bin.fs
+\ udg_ti99_to_bin.fs
 
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211801
+\ Last modified 201612211827
 
 \ ==============================================================
 \ Description
@@ -31,7 +31,7 @@
 \ ==============================================================
 \ Usage
 
-\ See <udgti2bin.demo.fs> for a usage example.
+\ See <udg_ti99_to_bin.demo.fs> for a usage example.
 
 \ ==============================================================
 \ Author

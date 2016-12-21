@@ -1,16 +1,16 @@
 #! /usr/bin/env gforth
 
-\ udgti2bin.demo.fs
+\ udg_ti99_to_bin.demo.fs
 
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201612211715
+\ Last modified 201612211827
 
 \ ==============================================================
 \ Description
 
-\ Demo of the <udgti2bin.fs> converter.
+\ Demo of the <udg_ti99_to_bin.fs> converter.
 
 \ This program converts some example TI BASIC UDGs (for TI-99
 \ computers) to 8x8 binary grids.
@@ -18,7 +18,7 @@
 \ ==============================================================
 \ Usage
 
-\ ./udgti2bin.demo.fs > output_file.fs
+\ ./udg_ti99_to_bin.demo.fs > output_file.fs
 
 \ ==============================================================
 \ Author
@@ -35,11 +35,11 @@
 \ ==============================================================
 \ History
 
-\ 2016-12-21: Extract from <udgti2bin.fs>.
+\ 2016-12-21: Extract from <udg_ti99_to_bin.fs>.
 
 \ ==============================================================
 
-include udgti2bin.fs
+include udg_ti99_to_bin.fs
 
 s" 183C3CFF3C3C3C3C" chardef
 s" 472F1F3E7CFA7120" chardef
