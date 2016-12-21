@@ -1,0 +1,33 @@
+= FantomoUDG
+:author: Marcos Cruz (programandala.net)
+:revdate: 2016-12-21
+
+== Description
+
+FantomoUDG is a small set of command line tools that manipulate so
+called UDG (User Defined Graphics), which are 8x8-pixel characters
+used by ZX Spectrum and other 8-bit computers.
+
+FantomoUDG is written in http://forth-standard.org[Forth] with
+http://gnu.org/software/gforth[Gforth].
+
+== Author
+
+Marcos Cruz (programandala.net).
+
+Home page: http://programandala.net
+
+== Name
+
+"FantomoUDG" stands for "Forth ANomalistic Tools Of Manipulation Of
+UDG", where "UDG" stands for "User Defined Graphics"; beside,
+"fantomo" is the Esperanto word for "ghost".
+
+== History
+
+Some simple tools to manipulate and convert UDG were written in 2011,
+2013 and 2015, for specific needs.
+
+In 2016 the tools were put together to prepare a coherent toolkit, and
+a Git repository was created from development backups in order to
+resume the development.
