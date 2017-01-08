@@ -5,7 +5,7 @@
 \ This file is part of FantomoUDG
 \ http://programandala.net
 
-\ Last modified 201701081643
+\ Last modified 201701081726
 
 \ ==============================================================
 \ Description
@@ -43,8 +43,8 @@ only forth definitions  decimal
 
 8 constant scans/udg
 
-variable scan  \ counter
-variable udg   \ counter
+variable scan#  \ counter
+variable udg#   \ counter
 
 : binary  ( -- )  2 base !  ;
 
@@ -74,19 +74,19 @@ variable udg   \ counter
          dup udg-code .udg-code ."  = "
          char-code .ascii-description cr ;
 
-: first-scan?  ( -- f )  scan @ 0=  ;
+: first-scan?  ( -- f )  scan# @ 0=  ;
 
-: last-scan?  ( -- f )  scan @ scans/udg =  ;
+: last-scan?  ( -- f )  scan# @ scans/udg =  ;
 
-: next-scan  ( -- )  1 scan +! cr  ;
+: next-scan  ( -- )  1 scan# +! cr  ;
 
-: next-udg  ( -- )  1 udg +! scan off cr  ;
+: next-udg  ( -- )  1 udg# +! scan# off cr  ;
 
-: init  ( -- )  udg off  scan off  ;
+: init  ( -- )  udg# off  scan# off  ;
 
 : udgs>bin  ( ca len -- )
   init  bounds ?do
-    first-scan? if  udg @ .description  then
+    first-scan? if  udg# @ .description  then
     i c@ .scan next-scan
     last-scan? if  next-udg  then
   loop  ;
