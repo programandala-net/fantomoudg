@@ -1,0 +1,14 @@
+= FantomoUDG To-Do
+:author: Marcos Cruz (programandala.net)
+:revdate:
+
+.2017-02-02:
+
+Rename files after a clear convention, e.g. "convert_" prefix for
+command line tools and "inc." prefix for tools that must be included.
+
+Also, change "bin", which is ambiguous, to "grid".
+
+.2017-02-02:
+
+Homogenize the format of the usage instructions.
