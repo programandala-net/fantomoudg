@@ -3,7 +3,7 @@
 \ udg_tap_to_forth_c-comma.fs
 
 \ This file is part of FantomoUDG
-\ http://programandala.net
+\ http://programandala.net/en.program.fantomoudg.html
 
 \ Last modified 201612212324
 

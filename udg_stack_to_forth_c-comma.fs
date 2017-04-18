@@ -3,14 +3,14 @@
 \ udg_stack_to_forth_c-comma.fs
 
 \ This file is part of FantomoUDG
-\ http://programandala.net
+\ http://programandala.net/en.program.fantomoudg.html
 
 \ Last modified 201702020018
 
 \ ==============================================================
 \ Description
 
-\ This program provides a word that prints a User Defined Graphics,
+\ This program provides a word that prints a User Defined Graphic,
 \ defined as 8 numbers on the stack, as Forth source that stores those
 \ numbers using `c,`, one graphic per line.
 

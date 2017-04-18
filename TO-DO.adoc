@@ -1,6 +1,9 @@
 = FantomoUDG To-Do
 :author: Marcos Cruz (programandala.net)
-:revdate:
+:revdate: 2017-04-18
+
+// This file is part of FantomoUDG
+// http://programandala.net/en.program.fantomoudg.html
 
 .2017-02-02:
 
@@ -8,6 +11,17 @@ Rename files after a clear convention, e.g. "convert_" prefix for
 command line tools and "inc." prefix for tools that must be included.
 
 Also, change "bin", which is ambiguous, to "grid".
+
+|====
+| Current filename               | New filename
+
+| udg_defb_to_forth.fs           | udg_defb_to_forth_udg-store.fs
+| udg_stack_to_forth_c-comma.fs  | udg_stack_to_forth_hex_c-comma.fs
+| udg_tap_to_bin.fs              | udg_tap_to_forth_binary_grid.fs
+| udg_tap_to_forth_c-comma.fs    | udg_tap_to_forth_hex_c-comma.fs
+| udg_tap_to_forth.fs            | udg_tap_to_forth_udg-store.fs
+| udg_ti99_to_bin.fs             | udg_ti99_to_binary_grid.fs
+|====
 
 .2017-02-02:
 

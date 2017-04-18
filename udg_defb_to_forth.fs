@@ -3,7 +3,7 @@
 \ udg_defb_to_forth.fs
 
 \ This file is part of FantomoUDG
-\ http://programandala.net
+\ http://programandala.net/en.program.fantomoudg.html
 
 \ Last modified 201612211827
 

@@ -1,6 +1,9 @@
 = FantomoUDG
 :author: Marcos Cruz (programandala.net)
-:revdate: 2016-12-21
+:revdate: 2017-04-18
+
+// This file is part of FantomoUDG
+// http://programandala.net/en.program.fantomoudg.html
 
 == Description
 
@@ -10,6 +13,8 @@ used by ZX Spectrum and other 8-bit computers.
 
 FantomoUDG is written in http://forth-standard.org[Forth] with
 http://gnu.org/software/gforth[Gforth].
+
+Home page: http://programandala.net/en.program.fantomoudg.html
 
 == Author
 
